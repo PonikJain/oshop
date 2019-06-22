@@ -2,25 +2,24 @@
 <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
 </p>
 
-<p><input type="text" #query (keyup)="filter(query.value)" class="form-control" placeholder="Search here..."></p>
-
-
-
-
-<table class="table">
-<thead>
-    <tr>
+<table datatable id="productTable" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
         <th>Title</th>
         <th>Price</th>
         <th></th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let product of filteredProducts">
-    <td>{{ product.title}}</td>
-    <td>{{ product.price}}</td>
-    <!--[routerLink is used generate dynamic link as here each product will have other link to edit ]-->
-   <td><a [routerLink]="['/admin/products/',product.key]" >Edit</a></td>
-    </tr>
-</tbody>
-</table>
+      </tr>
+    </thead>
+    <tbody *ngIf="products?.length != 0">
+        <tr *ngFor="let product of products">
+            <td>{{ product.title }}</td>
+            <td>{{ product.price }}</td>
+            <td><a [routerLink]="['/admin/products/',product.key]" >Edit</a></td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="products?.length == 0">
+      <tr>
+        <td colspan="3" class="no-data-available">No data!</td>
+      </tr>
+    <tbody>
+  </table>
