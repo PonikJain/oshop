@@ -51,5 +51,9 @@ export class ProductFormComponent {
     this.router.navigate(['/admin/products']);
   }
 
+  navigateAdminProducts(){
+    this.router.navigate(['/admin/products']);
+  }
+
 
 }

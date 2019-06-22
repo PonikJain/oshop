@@ -32,6 +32,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
 
+import { DataTablesModule } from 'angular-datatables';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,7 @@ import { ProductService } from './product.service';
     AngularFireAuthModule,
     FormsModule,
     CustomFormsModule,
+    DataTablesModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: '', component : HomeComponent},
