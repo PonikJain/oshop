@@ -33,6 +33,8 @@ import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
 
 import { DataTablesModule } from 'angular-datatables';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { DataTablesModule } from 'angular-datatables';
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
+    ProductCardComponent,
+    ProductFilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import { DataTablesModule } from 'angular-datatables';
     DataTablesModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path: '', component : HomeComponent},
+      {path: '', component : ProductsComponent},
       {path: 'products', component : ProductsComponent},
       {path: 'my/orders',component : MyOrdersComponent},
       {path: 'shopping-cart', component : ShoppingCartComponent},
