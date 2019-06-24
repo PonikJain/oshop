@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CategoryService } from '../category.service';
 
 @Component({
@@ -6,15 +6,14 @@ import { CategoryService } from '../category.service';
   templateUrl: './product-filter.component.html',
   styleUrls: ['./product-filter.component.css']
 })
-export class ProductFilterComponent implements OnInit {
+export class ProductFilterComponent {
 
   categories$;
+
+  @Input('category') category: any;
 
   constructor(private categoryService : CategoryService) {
     this.categories$ = categoryService.getAll();
    }
-
-  ngOnInit() {
-  }
 
 }
