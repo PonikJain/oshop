@@ -17,7 +17,7 @@ export class ProductFormComponent {
 
   categories$ ;
 
-  product$ = {};
+  product$ = {title:"",price:"",category:"",imageUrl:""} ;
 
   id;
 
