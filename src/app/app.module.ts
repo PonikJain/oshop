@@ -35,6 +35,8 @@ import { ProductService } from './product.service';
 import { DataTablesModule } from 'angular-datatables';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { ShoppingCartService } from './shopping-cart.service';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
     ProductFormComponent,
     ProductCardComponent,
     ProductFilterComponent,
+    ProductQuantityComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ import { ProductFilterComponent } from './product-filter/product-filter.componen
     AdminAuthGuard,
     UserService,
     CategoryService,
-    ProductService
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
