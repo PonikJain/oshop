@@ -32,7 +32,7 @@ export class ShoppingCartService {
 
    async getCart(){
     let cartId = await this.getOrCreateId();
-    let cart = this.db.object<ShoppingCart>('/shopping-carts/'+cartId).snapshotChanges().map(cart => cart.payload.val() as ShoppingCart);
+    let cart = this.db.object<ShoppingCart>('/shopping-carts/'+cartId).snapshotChanges().map(cart => ({key:cart.payload.key,...cart.payload.val()}) );
      return cart;
   }
 

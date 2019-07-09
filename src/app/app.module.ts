@@ -37,6 +37,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { OrderService } from './order.service';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     ProductCardComponent,
     ProductFilterComponent,
     ProductQuantityComponent,
+    ShoppingCartSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
       {path: 'my/orders',component : MyOrdersComponent},
       {path: 'shopping-cart', component : ShoppingCartComponent},
       {path: 'check-out', component : CheckOutComponent , canActivate : [AuthGuardService]},
-      {path: 'order-success' ,component: OrderSuccessComponent },
+      {path: 'order-success/:id' ,component: OrderSuccessComponent },
       {path: 'login' ,component: LoginComponent },
       //Most specific route should on top and generic at bottom
       {path: 'admin/products/new' ,component: ProductFormComponent ,canActivate : [AdminAuthGuard]},
@@ -87,7 +90,8 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     UserService,
     CategoryService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
