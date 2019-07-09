@@ -14,7 +14,7 @@ import { ShoppingCartItem } from '../models/shopping-cart-item';
 })
 export class CheckOutComponent implements OnInit ,OnDestroy{
 
-  shipping = {};  
+  shipping = {name :"",add1:"",add2:"",city:""};  
   cart : ShoppingCart;
   userId ; string;
 
