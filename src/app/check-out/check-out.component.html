@@ -1,3 +1,36 @@
-<p>
-  check-out works!
-</p>
+<h1>Shipping</h1>
+<div class="row">
+  <div class="col-6">
+              <form #form = "ngForm">
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input #name="ngModel" [(ngModel)]="shipping.name" name="name" id="name" type="text" class="form-control" required>
+                          <div class="alert alert-danger" *ngIf="name.touched && name.invalid">Name is required.</div>
+                      </div>
+                      <div class="form-group">
+                          <label for="add1">Address Line1</label>
+                          <input #add1="ngModel" [(ngModel)]="shipping.add1" name="add1" id="add1" type="text" class="form-control" required>
+                            <div class="alert alert-danger" *ngIf="add1.touched && add1.invalid">Address Line 1 is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="add2">Address Line 2</label>
+                            <input #add2="ngModel" [(ngModel)]="shipping.add2" name="add2" id="add2" type="text" class="form-control" required>
+                              <div class="alert alert-danger" *ngIf="add2.touched && add2.invalid">Address Line 2 is required.</div>
+                          </div>
+                          <div class="form-group">
+                              <label for="name">City</label>
+                              <input #city="ngModel" [(ngModel)]="shipping.city" name="city" id="city" type="text" class="form-control" required>
+                                <div class="alert alert-danger" *ngIf="city.touched && city.invalid">City is required.</div>
+                            </div>
+                    
+                          <button [disabled]="!form.valid" class="btn btn-primary" (click)="placeOrder()">Place Order</button>
+                          <button type="button" class="btn btn-danger" (click)="navigateToCart()" >Cancel</button>
+          </form>
+  </div>
+
+  <div class="col-6" *ngIf="cart">
+    <shopping-cart-summary [cart]="cart"></shopping-cart-summary>
+  </div>
+
+</div>
+
